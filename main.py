@@ -19,7 +19,14 @@ def check_our_files(path1, path2):
     str1 = getData(path1)
     str2 = getData(path2)
 
-    
+    res1 = checkForSame(str1, str2)
+    res2 = checkForDiff(str1, str2)
+
+    for el in checkForDiff(str2, str1):
+        res2.append(el)
+
+    writeFile("result_with_difference.txt", res2)
+    writeFile("same_result.txt", res1)
 #get data from the wile
 def getData(path):
     file = open(path,'r')
